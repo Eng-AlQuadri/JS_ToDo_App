@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="all-tasks">
+            <h2 class="task-list-title">My List</h2>
+            <ul class="task-list" data-lists>
+                <li class="active-list">YouTube</li>
+                <li>Grocery</li>
+                <li>Work</li>
+            </ul>
+            <form action="" data-new-list-form>
+                <input type="text" class="new-list" placeholder="new list name" aria-label="new list name"
+                    data-new-list-input>
+                <button class="btn-list">+</button>
+            </form>
+        </div>
+
+        <div class="todo-list" data-list-display-container>
+            <div class="todo-header">
+                <h2 class="list-title" data-list-title>YouTube</h2>
+                <p><span class="task-count" data-list-count>3</span> <span data-list-string>Tasgks Remaining</span></p>
+            </div>
+            <div class="todo-body">
+                <div class="tasks" data-tasks>
+                    <div class="task">
+                        <input type="checkbox" id="task-1">
+                        <label for="task-1">
+                            <span class="custom-checkbox"></span>
+                            record todo list video
+                        </label>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" id="task-2">
+                        <label for="task-2">
+                            <span class="custom-checkbox"></span>
+                            another task
+                        </label>
+                    </div>
+                    <div class="task">
+                        <input type="checkbox" id="task-3">
+                        <label for="task-3">
+                            <span class="custom-checkbox"></span>
+                            third task
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                <div class="new-task-creator">
+                    <form action="" data-new-task-form>
+                        <input data-new-task-input type="text" class="new-task" placeholder="new task name"
+                            aria-label="new task name">
+                        <button class="btn-task">+</button>
+                    </form>
+                </div>
+                <div class="delete-stuff">
+                    <button class="btn-delete" data-clear-complete-tasks-button>Clear <br> Completed Tasks</button>
+                    <button class="btn-delete" data-delete-list-button>Delete List</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox">
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+    </template>
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media(min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media(min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+:root {
+    --main-color: #00539ccf;
+    --second-color: #eea47fff;
+}
+
+/* End Global Rules */
+
+/* Start Styling */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 60px;
+}
+
+@media(max-width: 767px) {
+    .container {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+        row-gap: 50px;
+    }
+}
+
+.all-tasks,
+.todo-list {
+    background-color: var(--second-color);
+    border-radius: 15px;
+    /* padding: 15px; */
+    position: relative;
+    min-width: 302px;
+}
+
+.all-tasks .task-list-title {
+    color: white;
+    text-align: center;
+    background-color: var(--main-color);
+    width: 100%;
+    padding: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    margin: 0;
+}
+
+.all-tasks .task-list li {
+    padding: 15px;
+    color: white;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    margin: 15px 25px;
+    text-align: center;
+    opacity: 0.5;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.all-tasks .task-list li.active-list,
+.all-tasks .task-list li:hover {
+    opacity: 1;
+}
+
+.all-tasks form {
+    background-color: var(--main-color);
+    padding: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.all-tasks form .new-list {
+    padding: 8px;
+    border-radius: 15px;
+    border: none;
+    caret-color: var(--main-color);
+}
+
+.all-tasks form .btn-list {
+    border-radius: 15px;
+    color: white;
+    background-color: var(--second-color);
+    opacity: 0.5;
+    width: 40px;
+    height: 40px;
+    border: none;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.all-tasks form .btn-list:hover {
+    opacity: 1;
+}
+
+.all-tasks form .new-list::placeholder {
+    transition: opacity 0.3s;
+}
+
+.all-tasks form .new-list:focus {
+    outline: none;
+}
+
+.all-tasks form .new-list:focus::placeholder {
+    opacity: 0;
+}
+
+.todo-list {
+    min-width: 302px;
+}
+
+.todo-list .todo-header {
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    width: 100%;
+    padding: 0 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.todo-list .todo-header p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list .todo-header .task-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--second-color);
+    border-radius: 15px;
+    width: 35px;
+    height: 35px;
+    margin: 0 0 10px 0;
+}
+
+.todo-list .todo-body .tasks {
+    /* padding: 15px; */
+    margin: 0 15px;
+}
+
+.todo-list .todo-body .tasks .task label {
+    width: 100%;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    margin: 15px auto;
+    position: relative;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.3s;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.todo-list .todo-body .tasks .task label::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: var(--second-color);
+    width: 0;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.todo-list .todo-body .tasks .task [type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.todo-list .todo-body .tasks .task [type="checkbox"]:checked+label::before {
+    width: 100%;
+}
+
+.todo-list .todo-body .tasks .task [type="checkbox"]:checked+label {
+    opacity: 0.5;
+}
+
+.todo-list .todo-body .tasks .task [type="checkbox"]:checked+label .custom-checkbox {
+    background-color: var(--second-color);
+}
+
+.todo-list .todo-body .tasks .task .custom-checkbox {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    border: 1px solid var(--second-color);
+    transition: 0.3s;
+}
+
+.todo-list .foot {
+    width: 100%;
+    background-color: var(--main-color);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.todo-list .foot .new-task-creator {
+    margin-bottom: 15px;
+}
+
+.todo-list .foot .new-task-creator form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-list .foot .new-task-creator form .new-task {
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    caret-color: var(--main-color);
+    margin: 0 30px 0 0;
+}
+
+.todo-list .foot .new-task-creator form .new-task::placeholder {
+    transition: opacity 0.3s;
+}
+
+.todo-list .foot .new-task-creator form .new-task:focus {
+    outline: none;
+}
+
+.todo-list .foot .new-task-creator form .new-task:focus::placeholder {
+    opacity: 0;
+}
+
+.todo-list .foot .new-task-creator form .btn-task {
+    border-radius: 15px;
+    color: white;
+    background-color: var(--second-color);
+    opacity: 0.5;
+    width: 40px;
+    height: 40px;
+    border: none;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.todo-list .foot .new-task-creator form .btn-task:hover {
+    opacity: 1;
+}
+
+.todo-list .foot .delete-stuff {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    column-gap: 30px;
+}
+
+.todo-list .foot .delete-stuff .btn-delete {
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.todo-list .foot .delete-stuff .btn-delete:hover {
+    opacity: 1;
+}
+
+/* End Styling */
